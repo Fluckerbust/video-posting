@@ -110,7 +110,7 @@ function App() {
           serviceList.map((singleService, index) => (
             <ul key={index}>
               {singleService.title &&  <li>:film_projector: Title: <br/>&nbsp;&nbsp;&nbsp;{singleService.title}</li>}
-              {singleService.description && <li>:information_source Description: <br/>&nbsp;&nbsp;&nbsp;{singleService.description}</li>}
+              {singleService.description && <li>:information_source: Description: <br/>&nbsp;&nbsp;&nbsp;{singleService.description}</li>}
               {<li>:link: URL: <br/>&nbsp;&nbsp;&nbsp;https://hpedemoportal.ext.hpe.com?name={urlCreator(singleService.title)}</li>}
             <br/>
               </ul>
