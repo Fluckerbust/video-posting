@@ -4,6 +4,12 @@ import halls from "./assets/images/halls.png";
 import orange from "./assets/images/orange.jpg";
 import trees from "./assets/images/trees.png";
 import wave from "./assets/images/wave.png";
+import slide14 from "./assets/images/Slide14.jpg"
+import slide15 from "./assets/images/Slide15.jpg"
+import  slide16 from "./assets/images/Slide16.jpg"
+import slide18 from "./assets/images/Slide18.jpg"
+import slide19 from "./assets/images/Slide19.jpg"
+import slide22 from "./assets/images/Slide22.jpg"
 
 
 function App() {
@@ -32,7 +38,7 @@ function App() {
     
     return site
   }
-  const images = [orange, halls, trees, wave]
+  const images = [orange, halls, trees, wave, slide14, slide15, slide16, slide18, slide19, slide22]
 
   const randomImage = () => {
     let randomNumber = Math.floor(Math.random() * images.length)
@@ -40,6 +46,7 @@ function App() {
     return chosen
   }
 
+const videoCount = serviceList.length
 
   return (
     
@@ -65,13 +72,13 @@ function App() {
                 onChange={(e) => handleServiceChange(e, index)}
                 required
               />
-              {serviceList.length - 1 === index && serviceList.length < 4 && (
+              {serviceList.length - 1 === index && serviceList.length < 20 && (
                 <button
                   type="button"
                   onClick={handleServiceAdd}
                   className="add-btn"
                 >
-                  <span>Add a Service</span>
+                  <span>Add a Video</span>
                 </button>
               )}
             </div>
@@ -94,36 +101,41 @@ function App() {
           </div>
           
         ))}
-        <h2>Posts:</h2><br/>
+        <h2>Post Image:</h2><br/>
+        <div className="postContainer">
                 {serviceList &&
           serviceList.map((singleService, index) => (
-            <div key={index}>
+            <div  key={index}>
               {singleService.title &&  <div className="postBG" style={{backgroundImage: `url(${randomImage()})`}}><div className="postOverlay"><h1>{singleService.title}</h1></div></div>}
               
             <br/>
               </div>
+
           ))}
+          </div>
       </div>
       <div className="output">
         <h2>Slack Post</h2>
+        <div>{videoCount} New videos published today on the HPE Demonstration Portal</div>
         {serviceList &&
           serviceList.map((singleService, index) => (
             <ul key={index}>
-              {singleService.title &&  <li>:film_projector: Title: <br/>&nbsp;&nbsp;&nbsp;{singleService.title}</li>}
-              {singleService.description && <li>:information_source: Description: <br/>&nbsp;&nbsp;&nbsp;{singleService.description}</li>}
-              {<li>:link: URL: <br/>&nbsp;&nbsp;&nbsp;https://hpedemoportal.ext.hpe.com?name={urlCreator(singleService.title)}</li>}
+              {singleService.title &&  <li>:film_projector: Title: <br/>{singleService.title}</li>}
+              {singleService.description && <li>:information_source: Description: <br/>{singleService.description}</li>}
+              {<li>:link: URL: <br/>https://hpedemoportal.ext.hpe.com?name={urlCreator(singleService.title)}</li>}
             <br/>
               </ul>
             
           ))}
 
 <h2>Yammer Post</h2>
+<div>{videoCount} New videos published today on the HPE Demonstration Portal</div>
         {serviceList &&
           serviceList.map((singleService, index) => (
             <ul key={index}>
-              {singleService.title &&  <li>Title: <br/>&nbsp;&nbsp;&nbsp;{singleService.title}</li>}
-              {singleService.description && <li>Description: <br/>&nbsp;&nbsp;&nbsp;{singleService.description}</li>}
-              {<li>URL: <br/>&nbsp;&nbsp;&nbsp;https://hpedemoportal.ext.hpe.com?name={urlCreator(singleService.title)}</li>}
+              {singleService.title &&  <li>Title: <br/>{singleService.title}</li>}
+              {singleService.description && <li>Description: <br/>{singleService.description}</li>}
+              {<li>URL: <br/>https://hpedemoportal.ext.hpe.com?name={urlCreator(singleService.title)}</li>}
             <br/>
               </ul>
             
